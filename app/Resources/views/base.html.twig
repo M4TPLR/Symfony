@@ -1,13 +1,52 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="UTF-8" />
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        {% block stylesheets %}{% endblock %}
-        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
-    </head>
-    <body>
-        {% block body %}{% endblock %}
-        {% block javascripts %}{% endblock %}
-    </body>
+<html lang="en">
+<link href="css/bootstrap.min.css" type="text/css" rel="stylesheet"/>
+
+{% block stylesheets %}{% endblock %}
+{% stylesheets 'bundles/app/css/main.css'
+'bundles/app/css/bootstrap.min.css'
+'http://vjs.zencdn.net/6.1.0/video-js.css' %}
+<link rel="stylesheet" href="{{ asset_url }}" type="text/css"/>
+{% endstylesheets %}
+<meta charset="UTF-8">
+<title>{% block title %}VideHall - {% endblock %}</title>
+<nav class="navbar navbar-toggleable-md navbar-inverse background_color_b fixed-top">
+    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+            aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <a class="navbar-brand" href="#">VideHall</a>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Profile</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Hall</a>
+            </li>
+        </ul>
+        <form class="form-inline my-2 my-lg-0">
+            <input class="form-control mr-sm-2" type="text" placeholder="Tag of a video">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        </form>
+    </div>
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+</nav>
+
+
+</head>
+<body class="container">
+{% block body %}{% endblock %}
+{% block javascripts %}{% endblock %}
+{% javascripts 'bundles/app/js/main.js'
+'bundles/app/js/jquery.js'
+'bundles/app/js/bootstrap.min.js' %}
+<script type="text/javascript" src="{{ asset_url }}"></script>
+{% endjavascripts %}
+</body>
 </html>

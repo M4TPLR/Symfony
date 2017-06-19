@@ -1,0 +1,21 @@
+@import url('https://fonts.googleapis.com/css?family=Fjalla+One');
+
+.background-img{
+    background: url("../aurore.jpg") no-repeat center fixed;
+    background-size: cover;
+}
+
+.baseline{
+    display: none;
+}
+
+#registerForm{
+    display: none;
+}
+
+@media screen and (min-width: 992px) {
+    #registerForm{
+        margin-top: 100px;
+    }
+}
+

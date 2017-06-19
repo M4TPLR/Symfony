@@ -1,0 +1,234 @@
+{% extends "::base.html.twig" %}
+{% block stylesheets %}
+    {% stylesheets 'bundles/app/css/player.css'
+                    'http://vjs.zencdn.net/5.19.2/video-js.css'%}
+    <link rel="stylesheet" href="{{ asset_url }}" type="text/css"/>
+    {% endstylesheets %}
+{% endblock %}
+{% block title %}Player{% endblock %}
+
+{% block body %}
+    <body class="container">
+    <div class="embed-responsive-item container col-md-12 d-inline-block" style="height: 100%; padding: 0; margin: 0;">
+        <video autoplay="autoplay" id="my-video"
+               class="video-js col-lg-8 col-12 col-md-12 col-sm-12 player d-inline-block float-left embed-responsive-item"
+               controls
+               preload="auto" poster="{{ asset('bundles/app/img/soad.jpg') }}"
+               data-setup="{}">
+            <source src="{{ asset('bundles/app/img/Assassins%20Creed.mp4.mp4') }}" type='video/mp4'>
+            <p class="vjs-no-js">
+                To view this video please enable JavaScript, and consider upgrading to a web browser that
+                <a href="http://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a>
+            </p>
+        </video>
+        <div class="comments text-justify col-lg-4 hidden-md-down d-inline-block">
+            <h6 class="section-title hidden-md-down">Comments</h6>
+            <div class="comments-scroll">
+
+                <div class="row comment-line hidden-md-down container">
+                    <img src="{{ asset('bundles/app/img/profil.png') }}" alt="profile down" class="profile-img float-left d-inline-block">
+                    <p class="comment-text d-inline-block float-right col-8 push-1">+Frop Drop spelling of your words
+                        broke
+                        my
+                        heart..!!
+                        Anyways i respect u as a linkin park fan bro
+                        And you are right﻿</p>
+                </div>
+                <div class="row comment-line hidden-md-down container">
+                    <img src="{{ asset('bundles/app/img/profil.png') }}" alt="profile image" class="profile-img float-left d-inline-block">
+                    <p class="comment-text d-inline-block float-right col-8 push-1">+Frop Drop spelling of your words
+                        broke
+                        my
+                        heart..!!
+                        Anyways i respect u as a linkin park fan bro
+                        And you are right﻿</p>
+                </div>
+                <div class="row comment-line hidden-md-down container">
+                    <img src="{{ asset('bundles/app/img/profil.png') }}" alt="profile image" class="profile-img float-left d-inline-block">
+                    <p class="comment-text d-inline-block float-right col-8 push-1">+Frop Drop spelling of your words
+                        broke
+                        my
+                        heart..!!
+                        Anyways i respect u as a linkin park fan bro
+                        And you are right﻿</p>
+                </div>
+                <div class="row comment-line hidden-md-down container">
+                    <img src="{{ asset('bundles/app/img/profil.png') }}" alt="profile image" class="profile-img float-left d-inline-block">
+                    <p class="comment-text d-inline-block float-right col-8 push-1">+Frop Drop spelling of your words
+                        broke
+                        my
+                        heart..!!
+                        Anyways i respect u as a linkin park fan bro
+                        And you are right﻿</p>
+                </div>
+                <div class="row comment-line hidden-md-down container">
+                    <img src="{{ asset('bundles/app/img/profil.png') }}" alt="profile image" class="profile-img float-left d-inline-block">
+                    <p class="comment-text d-inline-block float-right col-8 push-1">+Frop Drop spelling of your words
+                        broke
+                        my
+                        heart..!!
+                        Anyways i respect u as a linkin park fan bro
+                        And you are right﻿</p>
+                </div>
+                <div class="row comment-line hidden-md-down container">
+                    <img src="{{ asset('bundles/app/img/profil.png') }}" alt="profile image" class="profile-img float-left d-inline-block">
+                    <p class="comment-text d-inline-block float-right col-8 push-1">+Frop Drop spelling of your words
+                        broke
+                        my
+                        heart..!!
+                        Anyways i respect u as a linkin park fan bro
+                        And you are right﻿</p>
+                </div>
+            </div>
+            <form name="form-comment-lg" id="form-comment-lg" action="#" method="post">
+            <textarea name="comment-ta" id="comment-ta-lg" rows="2" placeholder="Your comment"
+                      class="form-control col-lg-8 hidden-md-down d-inline-block"></textarea>
+                <input type="submit" class="btn continue-btn col-lg-3" name="submit-lg-btn" id="submit-lg-btn"
+                       value="send">
+            </form>
+        </div>
+    </div>
+
+    <ul class="col-12 taglist">
+        <li><span>Music</span> <img class="icon" src="https://png.icons8.com/price-tag/p1em/16" title="Price Tag"
+                                    width="16" height="16"></li>
+        <li><span>Nu Metal</span> <img class="icon" src="https://png.icons8.com/price-tag/p1em/16" title="Price Tag"
+                                       width="16" height="16"></li>
+        <li><span>Linkin Park</span> <img class="icon" src="https://png.icons8.com/price-tag/p1em/16"
+                                          title="Price Tag" width="16" height="16"></li>
+    </ul>
+    </div>
+    <div class="description col-md-12">
+        <h4 class="video-title">LINKIN PARK</h4><img src="https://png.icons8.com/star/ios7/25" title="Star" width="15px"
+                                                     height="15px"><img src="https://png.icons8.com/star/ios7/25"
+                                                                        title="Star" width="15px" height="15px"><img
+                src="https://png.icons8.com/star/ios7/25" title="Star" width="15px" height="15px"><img
+                src="https://png.icons8.com/star/ios7/25" title="Star" width="15px" height="15px"><img
+                src="https://png.icons8.com/star/ios7/25" title="Star" width="15px" height="15px">
+        <p class="description-text">The new album 'One More Light' out May 19.
+
+            Pre-order vinyl and album bundles at http://linkinpark.com
+            Download/Stream "Battle Symphony" - http://lprk.co/onemorelight</p>
+    </div>
+    <div class="hall row">
+        <span class="hall_name col-3 col-sm-2 col-md-1 col-lg-1">Hall</span>
+        <span class="nbr_hallers col-6 col-sm-4 col-md-3 col-lg-2">2800 Hallers</span>
+        <form action="#" method="get">
+            <input type="button" value="Add" class="suscribe_btn navbar-toggler-right col-3">
+        </form>
+
+    </div>
+    <h6 class="section-title">Discover</h6>
+    <div class="row">
+        <div class="col-lg-4 col-md-6 d-inline-block">
+            <div>
+                <img src="{{ asset('bundles/app/img/Unknown.jpeg') }}" alt="video_img"
+                     class="video-img float-left img-fluid col-4 col-lg-6 col-md-7 col-sm-4">
+                <a href="#" class="title">Assasin's Creed</a>
+                <img src="https://png.icons8.com/star/ios7/25" title="Star" width="10px" height="10px"><img
+                        src="https://png.icons8.com/star/ios7/25" title="Star" width="10px" height="10px"><img
+                        src="https://png.icons8.com/star/ios7/25" title="Star" width="10px" height="10px"><img
+                        src="https://png.icons8.com/star/ios7/25" title="Star" width="10px" height="10px"><img
+                        src="https://png.icons8.com/star/ios7/25" title="Star" width="10px" height="10px">
+                <img src="https://png.icons8.com/system-report/androidL/24" title="System Report" width="10px"
+                     height="10px">
+                <p class="description">lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
+                    incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam. </p>
+            </div>
+        </div>
+        <div class="col-lg-4 col-md-6 d-inline-block">
+            <div>
+                <img src="{{ asset('bundles/app/img/Unknown.jpeg') }}" alt="video_img"
+                     class="video-img float-left img-fluid col-4 col-lg-6 col-md-7 col-sm-4">
+                <a href="#" class="title">Assasin's Creed</a>
+                <img src="https://png.icons8.com/star/ios7/25" title="Star" width="10px" height="10px"><img
+                        src="https://png.icons8.com/star/ios7/25" title="Star" width="10px" height="10px"><img
+                        src="https://png.icons8.com/star/ios7/25" title="Star" width="10px" height="10px"><img
+                        src="https://png.icons8.com/star/ios7/25" title="Star" width="10px" height="10px"><img
+                        src="https://png.icons8.com/star/ios7/25" title="Star" width="10px" height="10px">
+                <img src="https://png.icons8.com/system-report/androidL/24" title="System Report" width="10px"
+                     height="10px">
+                <p class="description">lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
+                    incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam. </p>
+            </div>
+        </div>
+        <div class="col-lg-4 col-md-6 d-inline-block">
+            <div>
+                <img src="{{ asset('bundles/app/img/Unknown.jpeg') }}" alt="video_img"
+                     class="video-img float-left img-fluid col-4 col-lg-6 col-md-7 col-sm-4 ">
+                <a href="#" class="title">Assasin's Creed</a>
+                <img src="https://png.icons8.com/star/ios7/25" title="Star" width="10px" height="10px"><img
+                        src="https://png.icons8.com/star/ios7/25" title="Star" width="10px" height="10px"><img
+                        src="https://png.icons8.com/star/ios7/25" title="Star" width="10px" height="10px"><img
+                        src="https://png.icons8.com/star/ios7/25" title="Star" width="10px" height="10px"><img
+                        src="https://png.icons8.com/star/ios7/25" title="Star" width="10px" height="10px">
+                <img src="https://png.icons8.com/system-report/androidL/24" title="System Report" width="10px"
+                     height="10px">
+                <p class="description">lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
+                    incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam. </p>
+            </div>
+        </div>
+    </div>
+    <div class="row" id="comments-block">
+        <h6 id="comments-title" class="hidden-lg-up section-title d-block col-12" class="section-title">Comments</h6>
+        <div class="comments container text-justify hidden-lg-up">
+
+            <div class="row comment-line container">
+                <img src="{{ asset('bundles/app/img/profil.png') }}" alt="profile image" class="profile-img float-left d-inline-block">
+                <p class="comment-text d-inline-block float-right col-8 push-1">+Frop Drop spelling of your words broke my
+                    heart..!!
+                    Anyways i respect u as a linkin park fan bro
+                    And you are rght﻿</p>
+            </div>
+            <div class="row comment-line container">
+                <img src="{{ asset('bundles/app/img/profil.png') }}" alt="profile image" class="profile-img float-left d-inline-block">
+                <p class="comment-text d-inline-block float-right col-8 push-1">+Frop Drop spelling of your words broke my
+                    heart..!!
+                    Anyways i respect u as a linkin park fan bro
+                    And you are right﻿</p>
+            </div>
+            <div class="row comment-line container">
+                <img src="{{ asset('bundles/app/img/profil.png') }}" alt="profile image" class="profile-img float-left d-inline-block">
+                <p class="comment-text d-inline-block float-right col-8 push-1">+Frop Drop spelling of your words broke my
+                    heart..!!
+                    Anyways i respect u as a linkin park fan bro
+                    And you are right﻿</p>
+            </div>
+            <div class="row comment-line container">
+                <img src="{{ asset('bundles/app/img/profil.png') }}" alt="profile image" class="profile-img float-left d-inline-block">
+                <p class="comment-text d-inline-block float-right col-8 push-1">+Frop Drop spelling of your words broke my
+                    heart..!!
+                    Anyways i respect u as a linkin park fan bro
+                    And you are right﻿</p>
+            </div>
+            <div class="row comment-line container">
+                <img src="{{ asset('bundles/app/img/profil.png') }}" alt="profile image" class="profile-img float-left d-inline-block">
+                <p class="comment-text d-inline-block float-right col-8 push-1">+Frop Drop spelling of your words broke my
+                    heart..!!
+                    Anyways i respect u as a linkin park fan bro
+                    And you are right﻿</p>
+            </div>
+            <div class="row comment-line container">
+                <img src="{{ asset('bundles/app/img/profil.png') }}" alt="profile image" class="profile-img float-left d-inline-block">
+                <p class="comment-text d-inline-block float-right col-8 push-1">+Frop Drop spelling of your words broke my
+                    heart..!!
+                    Anyways i respect u as a linkin park fan bro
+                    And you are right﻿</p>
+            </div>
+
+        </div>
+        <form action="#" method="post" id="form-comment" class="hidden-lg-up col-12" name="">
+        <textarea name="comment-ta" id="comment-ta" rows="2" placeholder="Your comment"
+                  class="form-control col-8 hidden-lg-up d-inline-block"></textarea>
+            <input type="submit" class="btn continue-btn col-3 hidden-lg-up" name="submit-btn" id="submit-btn" value="send">
+        </form>
+    </div>
+
+    {% block javascripts %}
+        <script src="http://vjs.zencdn.net/5.19.2/video.js"></script>
+    {% endblock %}
+    </body>
+
+{% endblock %}
+
+

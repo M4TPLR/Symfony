@@ -1,0 +1,109 @@
+.background_color_b{
+    background-color: #34495e;
+}
+
+.text_color_w{
+    color: #ffffff;
+}
+
+body{
+    padding-top: 60px;
+}
+
+.nav_block_box{
+    padding-bottom: 10px;
+}
+
+.nav_block{
+    display: inline-block;
+    width: 48%;
+    height: 30px;
+    border-bottom: 2px solid #34495e;
+    text-align: center;
+}
+
+#nav_block_left{
+    border-right: 2px solid #34495e;
+}
+
+#nav_block_right{
+    border-left: 2px solid #34495e;
+}
+
+.nav_block_active{
+    background-color: whitesmoke;
+}
+
+.description{
+    overflow-y: hidden;
+    font-size: xx-small;
+}
+
+.title{
+    font-size: x-small;
+}
+
+.continue-btn{
+    background-color: #3498db;
+    margin-bottom: 10px;
+}
+
+.continue-btn:hover{
+    color: white;
+    text-decoration: underline;
+}
+
+.profile-img{
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+}
+
+.baseline{
+    font-size: 150%;
+    color: white;
+    text-align: center;
+    font-family: 'Fjalla One', sans-serif;
+    margin-top: 10px;
+}
+
+#imgPicker{
+    position: relative;
+    top:0;
+    left: 0;
+    display: inline-block;
+}
+
+#imgPickerLabel{
+    text-align: center;
+    font-size: 80%;
+}
+
+.taglist li{
+    display: inline-block;
+    border: 2px solid #3498db;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+    background-color: #3498db;
+    color: white;
+    list-style-type: none;
+    font-size: small;
+    opacity: 0.8;
+    filter:alpha(opacity=0.8*100);
+    -moz-opacity:0.8;
+}
+
+.taglist li:hover{
+    opacity: 1;
+    filter:alpha(opacity=1*100);
+    -moz-opacity:1;
+}
+
+
+.section-title{
+    display: block;
+    padding-top: 10px;
+    color: #3498db;
+    font-style: italic;
+}

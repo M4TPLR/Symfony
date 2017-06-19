@@ -1,0 +1,45 @@
+#tagtitle-section {
+    background-color: #34495e;
+    margin: 0 -15px 0 -15px;
+}
+
+#addtag-btn {
+    display: none;
+}
+
+#addtagbtn-label {
+    color: white;
+}
+
+#addtagbtn-label:hover {
+    text-decoration: underline;
+}
+
+.content {
+    padding-top: 20px;
+}
+
+#tag-card {
+    margin-top: 20px;
+}
+
+#uploadvideo-label {
+    color: white;
+    margin-top: 5px;
+    padding-left: 10px;
+}
+
+#uploadvideo-section {
+    margin-top: 25px;
+    background-color: #34495e;
+}
+
+#upload-icon {
+    margin-top: 5px;
+}
+
+#monetizesection-title:hover{
+    text-decoration: underline;
+
+}
+

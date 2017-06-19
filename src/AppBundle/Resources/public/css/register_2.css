@@ -1,0 +1,53 @@
+@import url('https://fonts.googleapis.com/css?family=Fjalla+One');
+
+.background-img{
+    background: url("../sea.jpg") no-repeat center fixed;
+    background-size: cover;
+}
+
+.background-img-hall{
+    background: url("../aurore.jpg") no-repeat center fixed;
+    background-size: cover;
+}
+
+.baseline{
+    display: none;
+    font-size: 200%;
+    color: white;
+    text-align: center;
+    font-family: 'Fjalla One', sans-serif;
+    margin-top: 10px;
+
+}
+
+#register2Form{
+    display: none;
+}
+
+#register2Form label{
+    color: white;
+}
+
+.register-title{
+    padding-top: 20px;
+    color: white;
+    font-size: 140%;
+}
+
+#bioInput{
+    margin-bottom: -25px;
+}
+
+#nextStep{
+    display: none;
+}
+
+#hallSection{
+    display: none;
+    text-align: center;
+}
+
+#halldescriptionInput{
+    margin-bottom: -25px;
+}
+

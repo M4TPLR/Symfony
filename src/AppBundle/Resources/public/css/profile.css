@@ -1,0 +1,14 @@
+body {
+    background: url("../space.jpg") no-repeat center fixed;
+    background-size: cover;
+}
+
+.baseline{
+    color: white;
+}
+
+#profileForm{
+    display: none;
+}
+
+
