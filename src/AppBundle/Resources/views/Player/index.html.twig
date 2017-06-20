@@ -1,7 +1,7 @@
 {% extends "::base.html.twig" %}
 {% block stylesheets %}
     {% stylesheets 'bundles/app/css/player.css'
-                    'http://vjs.zencdn.net/5.19.2/video-js.css'%}
+    'http://vjs.zencdn.net/5.19.2/video-js.css' %}
     <link rel="stylesheet" href="{{ asset_url }}" type="text/css"/>
     {% endstylesheets %}
 {% endblock %}
@@ -10,12 +10,15 @@
 {% block body %}
     <body class="container">
     <div class="embed-responsive-item container col-md-12 d-inline-block" style="height: 100%; padding: 0; margin: 0;">
-        <video autoplay="autoplay" id="my-video"
+        <video id="my-video"
                class="video-js col-lg-8 col-12 col-md-12 col-sm-12 player d-inline-block float-left embed-responsive-item"
                controls
                preload="auto" poster="{{ asset('bundles/app/img/soad.jpg') }}"
                data-setup="{}">
-            <source src="{{ asset('bundles/app/img/Assassins%20Creed.mp4.mp4') }}" type='video/mp4'>
+
+            <source src="{% if video.videoUrl is defined %}
+            {{ asset('bundles/app/img/' ~ video.videoUrl) }}
+            {% endif %}" type='video/mp4'>
             <p class="vjs-no-js">
                 To view this video please enable JavaScript, and consider upgrading to a web browser that
                 <a href="http://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a>
@@ -24,61 +27,15 @@
         <div class="comments text-justify col-lg-4 hidden-md-down d-inline-block">
             <h6 class="section-title hidden-md-down">Comments</h6>
             <div class="comments-scroll">
-
-                <div class="row comment-line hidden-md-down container">
-                    <img src="{{ asset('bundles/app/img/profil.png') }}" alt="profile down" class="profile-img float-left d-inline-block">
-                    <p class="comment-text d-inline-block float-right col-8 push-1">+Frop Drop spelling of your words
-                        broke
-                        my
-                        heart..!!
-                        Anyways i respect u as a linkin park fan bro
-                        And you are right﻿</p>
-                </div>
-                <div class="row comment-line hidden-md-down container">
-                    <img src="{{ asset('bundles/app/img/profil.png') }}" alt="profile image" class="profile-img float-left d-inline-block">
-                    <p class="comment-text d-inline-block float-right col-8 push-1">+Frop Drop spelling of your words
-                        broke
-                        my
-                        heart..!!
-                        Anyways i respect u as a linkin park fan bro
-                        And you are right﻿</p>
-                </div>
-                <div class="row comment-line hidden-md-down container">
-                    <img src="{{ asset('bundles/app/img/profil.png') }}" alt="profile image" class="profile-img float-left d-inline-block">
-                    <p class="comment-text d-inline-block float-right col-8 push-1">+Frop Drop spelling of your words
-                        broke
-                        my
-                        heart..!!
-                        Anyways i respect u as a linkin park fan bro
-                        And you are right﻿</p>
-                </div>
-                <div class="row comment-line hidden-md-down container">
-                    <img src="{{ asset('bundles/app/img/profil.png') }}" alt="profile image" class="profile-img float-left d-inline-block">
-                    <p class="comment-text d-inline-block float-right col-8 push-1">+Frop Drop spelling of your words
-                        broke
-                        my
-                        heart..!!
-                        Anyways i respect u as a linkin park fan bro
-                        And you are right﻿</p>
-                </div>
-                <div class="row comment-line hidden-md-down container">
-                    <img src="{{ asset('bundles/app/img/profil.png') }}" alt="profile image" class="profile-img float-left d-inline-block">
-                    <p class="comment-text d-inline-block float-right col-8 push-1">+Frop Drop spelling of your words
-                        broke
-                        my
-                        heart..!!
-                        Anyways i respect u as a linkin park fan bro
-                        And you are right﻿</p>
-                </div>
-                <div class="row comment-line hidden-md-down container">
-                    <img src="{{ asset('bundles/app/img/profil.png') }}" alt="profile image" class="profile-img float-left d-inline-block">
-                    <p class="comment-text d-inline-block float-right col-8 push-1">+Frop Drop spelling of your words
-                        broke
-                        my
-                        heart..!!
-                        Anyways i respect u as a linkin park fan bro
-                        And you are right﻿</p>
-                </div>
+                {% if listComments is defined %}
+                    {% for comment in listComments %}
+                        <div class="row comment-line hidden-md-down container">
+                            <img src="{{ asset('bundles/app/img/profil.png') }}" alt="profile down"
+                                 class="profile-img float-left d-inline-block">
+                            <p class="comment-text d-inline-block float-right col-8 push-1">{{ comment.text }}</p>
+                        </div>
+                    {% endfor %}
+                {% endif %}
             </div>
             <form name="form-comment-lg" id="form-comment-lg" action="#" method="post">
             <textarea name="comment-ta" id="comment-ta-lg" rows="2" placeholder="Your comment"
@@ -99,16 +56,33 @@
     </ul>
     </div>
     <div class="description col-md-12">
-        <h4 class="video-title">LINKIN PARK</h4><img src="https://png.icons8.com/star/ios7/25" title="Star" width="15px"
-                                                     height="15px"><img src="https://png.icons8.com/star/ios7/25"
-                                                                        title="Star" width="15px" height="15px"><img
-                src="https://png.icons8.com/star/ios7/25" title="Star" width="15px" height="15px"><img
-                src="https://png.icons8.com/star/ios7/25" title="Star" width="15px" height="15px"><img
-                src="https://png.icons8.com/star/ios7/25" title="Star" width="15px" height="15px">
-        <p class="description-text">The new album 'One More Light' out May 19.
+        <h4 class="video-title">
+            {% if video.title is defined %}
+                {{ video.title }}
+            {% else %}
+                La vidéo demandée n'existe pas
+            {% endif %}</h4>
 
-            Pre-order vinyl and album bundles at http://linkinpark.com
-            Download/Stream "Battle Symphony" - http://lprk.co/onemorelight</p>
+        {% for i in 0..video.vote-1 %}
+            <img src="https://png.icons8.com/star-filled/ios7/25" title="Star Filled" width="15" height="15">
+            {% set y = i+1 %}
+        {% endfor %}
+
+        {% if video.vote != 5 %}
+            {% set c = 0 %}
+            {% for c in video.vote..4 %}
+                <img src="https://png.icons8.com/star/ios7/25" title="Star" width="15px"
+                     height="15px">
+            {% endfor %}
+        {% endif %}
+
+        <p class="description-text">
+
+            {% if video.description is defined %}
+                {{ video.description }}
+            {% else %}
+                Erreur...
+            {% endif %}</p>
     </div>
     <div class="hall row">
         <span class="hall_name col-3 col-sm-2 col-md-1 col-lg-1">Hall</span>
@@ -174,43 +148,55 @@
         <div class="comments container text-justify hidden-lg-up">
 
             <div class="row comment-line container">
-                <img src="{{ asset('bundles/app/img/profil.png') }}" alt="profile image" class="profile-img float-left d-inline-block">
-                <p class="comment-text d-inline-block float-right col-8 push-1">+Frop Drop spelling of your words broke my
+                <img src="{{ asset('bundles/app/img/profil.png') }}" alt="profile image"
+                     class="profile-img float-left d-inline-block">
+                <p class="comment-text d-inline-block float-right col-8 push-1">+Frop Drop spelling of your words broke
+                    my
                     heart..!!
                     Anyways i respect u as a linkin park fan bro
                     And you are rght﻿</p>
             </div>
             <div class="row comment-line container">
-                <img src="{{ asset('bundles/app/img/profil.png') }}" alt="profile image" class="profile-img float-left d-inline-block">
-                <p class="comment-text d-inline-block float-right col-8 push-1">+Frop Drop spelling of your words broke my
+                <img src="{{ asset('bundles/app/img/profil.png') }}" alt="profile image"
+                     class="profile-img float-left d-inline-block">
+                <p class="comment-text d-inline-block float-right col-8 push-1">+Frop Drop spelling of your words broke
+                    my
                     heart..!!
                     Anyways i respect u as a linkin park fan bro
                     And you are right﻿</p>
             </div>
             <div class="row comment-line container">
-                <img src="{{ asset('bundles/app/img/profil.png') }}" alt="profile image" class="profile-img float-left d-inline-block">
-                <p class="comment-text d-inline-block float-right col-8 push-1">+Frop Drop spelling of your words broke my
+                <img src="{{ asset('bundles/app/img/profil.png') }}" alt="profile image"
+                     class="profile-img float-left d-inline-block">
+                <p class="comment-text d-inline-block float-right col-8 push-1">+Frop Drop spelling of your words broke
+                    my
                     heart..!!
                     Anyways i respect u as a linkin park fan bro
                     And you are right﻿</p>
             </div>
             <div class="row comment-line container">
-                <img src="{{ asset('bundles/app/img/profil.png') }}" alt="profile image" class="profile-img float-left d-inline-block">
-                <p class="comment-text d-inline-block float-right col-8 push-1">+Frop Drop spelling of your words broke my
+                <img src="{{ asset('bundles/app/img/profil.png') }}" alt="profile image"
+                     class="profile-img float-left d-inline-block">
+                <p class="comment-text d-inline-block float-right col-8 push-1">+Frop Drop spelling of your words broke
+                    my
                     heart..!!
                     Anyways i respect u as a linkin park fan bro
                     And you are right﻿</p>
             </div>
             <div class="row comment-line container">
-                <img src="{{ asset('bundles/app/img/profil.png') }}" alt="profile image" class="profile-img float-left d-inline-block">
-                <p class="comment-text d-inline-block float-right col-8 push-1">+Frop Drop spelling of your words broke my
+                <img src="{{ asset('bundles/app/img/profil.png') }}" alt="profile image"
+                     class="profile-img float-left d-inline-block">
+                <p class="comment-text d-inline-block float-right col-8 push-1">+Frop Drop spelling of your words broke
+                    my
                     heart..!!
                     Anyways i respect u as a linkin park fan bro
                     And you are right﻿</p>
             </div>
             <div class="row comment-line container">
-                <img src="{{ asset('bundles/app/img/profil.png') }}" alt="profile image" class="profile-img float-left d-inline-block">
-                <p class="comment-text d-inline-block float-right col-8 push-1">+Frop Drop spelling of your words broke my
+                <img src="{{ asset('bundles/app/img/profil.png') }}" alt="profile image"
+                     class="profile-img float-left d-inline-block">
+                <p class="comment-text d-inline-block float-right col-8 push-1">+Frop Drop spelling of your words broke
+                    my
                     heart..!!
                     Anyways i respect u as a linkin park fan bro
                     And you are right﻿</p>
@@ -220,7 +206,8 @@
         <form action="#" method="post" id="form-comment" class="hidden-lg-up col-12" name="">
         <textarea name="comment-ta" id="comment-ta" rows="2" placeholder="Your comment"
                   class="form-control col-8 hidden-lg-up d-inline-block"></textarea>
-            <input type="submit" class="btn continue-btn col-3 hidden-lg-up" name="submit-btn" id="submit-btn" value="send">
+            <input type="submit" class="btn continue-btn col-3 hidden-lg-up" name="submit-btn" id="submit-btn"
+                   value="send">
         </form>
     </div>
 
