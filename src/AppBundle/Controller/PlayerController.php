@@ -17,9 +17,11 @@ class PlayerController extends Controller
         $video = $r->find($id);
 
         $listComments = $em->getRepository('AppBundle:Comment')->findBy(array('video' => $video));
+        $listTags = $em->getRepository('AppBundle:Tag')->findBy(array('video' => $video));
         return $this->render('AppBundle:Player:index.html.twig', array(
             'video' => $video,
-            'listComments' => $listComments
+            'listComments' => $listComments,
+            'listTags' => $listTags
         ));
     }
 

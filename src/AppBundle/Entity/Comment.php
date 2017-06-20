@@ -30,7 +30,7 @@ class Comment
 
     /**
      *
-     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Video")
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Video", cascade={"persist"})
      * @ORM\JoinColumn(nullable=false)
      */
     private $video;

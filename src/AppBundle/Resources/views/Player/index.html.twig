@@ -47,12 +47,13 @@
     </div>
 
     <ul class="col-12 taglist">
-        <li><span>Music</span> <img class="icon" src="https://png.icons8.com/price-tag/p1em/16" title="Price Tag"
-                                    width="16" height="16"></li>
-        <li><span>Nu Metal</span> <img class="icon" src="https://png.icons8.com/price-tag/p1em/16" title="Price Tag"
-                                       width="16" height="16"></li>
-        <li><span>Linkin Park</span> <img class="icon" src="https://png.icons8.com/price-tag/p1em/16"
-                                          title="Price Tag" width="16" height="16"></li>
+        {% if listTags is defined %}
+            {% for tag in listTags %}
+                <li><span>{{ tag.name }}</span>
+                    <img class="icon" src="https://png.icons8.com/price-tag/p1em/16" title="Price Tag" width="16"
+                         height="16"></li>
+            {% endfor %}
+        {% endif %}
     </ul>
     </div>
     <div class="description col-md-12">
