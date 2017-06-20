@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<link href="css/bootstrap.min.css" type="text/css" rel="stylesheet"/>
+<link href="css/main.css" type="text/css" rel="stylesheet"/>
+<link href="css/register.css" type="text/css" rel="stylesheet"/>
+
+<meta charset="UTF-8">
+<title>Titre</title>
+<nav class="navbar navbar-toggleable-md navbar-inverse background_color_b fixed-top">
+    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+            aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <a class="navbar-brand" href="#">VideHall</a>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Profile</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Hall</a>
+            </li>
+        </ul>
+        <form class="form-inline my-2 my-lg-0">
+            <input class="form-control mr-sm-2" type="text" placeholder="Tag of a video">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        </form>
+    </div>
+</nav>
+</head>
+
+<body class="background-img container">
+<p class="baseline" id="baseline1">Welcome on VideHall!</p>
+<p class="baseline" id="baseline2"> We need some informations to create your account...</p>
+<form action="#" method="post" id="registerForm" name="registerForm">
+    <div class="col-lg-5 push-lg-1 d-inline-block">
+        <input type="text" id="nicknameInput" name="nicknameInput" placeholder="Nickname" class="form-control"><br>
+        <input type="text" id="mailInput" name="mailInput" placeholder="Email" class="form-control"><br>
+    </div>
+    <div class="col-lg-5 push-lg-1 d-inline-block">
+        <input type="text" id="passwordInput" name="passwordInput" placeholder="Password" class="form-control"><br>
+        <input type="text" id="passwordconfirmInput" name="passwordconfirmInput" placeholder="Repeat Password"
+               class="form-control"><br>
+    </div>
+
+    <input type="date" class="form-control col-lg-8 col-12 push-lg-2"><br>
+    <input type="submit" value="Continue" class="btn continue-btn col-md-6 push-md-3" id="continueBtn">
+</form>
+</body>
+<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript" src="js/bootstrap.min.js"></script>
+<script type="text/javascript" src="js/register.js"></script>
+
+
+</body>
+</html>

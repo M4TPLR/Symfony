@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css?family=Fjalla+One');
 
-.background-img{
-    background: url("../aurore.jpg") no-repeat center fixed;
+body{
+    background: url("http://localhost:8888/Symfony/web/bundles/app/img/aurore.jpg") no-repeat center fixed;
     background-size: cover;
 }
 

@@ -1,0 +1,30 @@
+{% trans_default_domain 'FOSUserBundle' %}
+
+{% block stylesheets %}
+    {% stylesheets 'bundles/app/css/register.css' %}
+    <link rel="stylesheet" href="{{ asset_url }}" type="text/css"/>
+    {% endstylesheets %}
+{% endblock %}
+
+{% block body %}
+{{ form_start(form, {'method': 'post', 'action': path('fos_user_registration_register'), 'attr': {'class': 'fos_user_registration_register', 'id': 'registerForm'}}) }}
+<div class="col-lg-5 push-lg-1 d-inline-block">
+    {{ form_widget(form.username, {'attr':{'id': 'nicknameInput', 'placeholder': 'Nickname', 'class': 'form-control'}}) }}
+    <br>
+    {{ form_widget(form.email, {'attr':{'id': 'mailInput', 'placeholder': 'Email', 'class': 'form-control'}}) }}<br>
+</div>
+<div class="col-lg-5 push-lg-1 d-inline-block">
+    {{ form_widget(form.plainPassword.first, {'attr':{'id': 'passwordInput', 'placeholder': 'Password', 'class': 'form-control'}}) }}
+    <br>
+    {{ form_widget(form.plainPassword.second, {'attr':{'id': 'passwordconfirmInput', 'placeholder': 'Repeat Password', 'class': 'form-control'}}) }}
+    <br>
+</div>
+<div>
+    <input type="submit" value="{{ 'registration.submit'|trans }}" class="btn continue-btn col-md-6 push-md-3" id="continueBtn">
+</div>
+{{ form_end(form) }}
+{% endblock %}
+
+
+
+

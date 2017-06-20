@@ -42,11 +42,12 @@
 </head>
 <body class="container">
 {% block body %}{% endblock %}
-{% block javascripts %}{% endblock %}
-{% javascripts 'bundles/app/js/main.js'
-'bundles/app/js/jquery.js'
-'bundles/app/js/bootstrap.min.js' %}
+
+{% javascripts 'bundles/app/js/jquery.js'
+'bundles/app/js/main.js'
+'web/bundles/app/js/bootstrap.min.js' %}
 <script type="text/javascript" src="{{ asset_url }}"></script>
 {% endjavascripts %}
+{% block javascripts %}{% endblock %}
 </body>
 </html>
