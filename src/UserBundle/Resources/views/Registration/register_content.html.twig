@@ -1,12 +1,14 @@
 {% trans_default_domain 'FOSUserBundle' %}
 
 {% block stylesheets %}
-    {% stylesheets 'bundles/app/css/register.css' %}
+    {% stylesheets 'bundles/user/css/register.css' %}
     <link rel="stylesheet" href="{{ asset_url }}" type="text/css"/>
     {% endstylesheets %}
 {% endblock %}
 
 {% block body %}
+    <p class="baseline" id="baseline1">Welcome on VideHall!</p>
+    <p class="baseline" id="baseline2">We need some informations to create your account...</p>
 {{ form_start(form, {'method': 'post', 'action': path('fos_user_registration_register'), 'attr': {'class': 'fos_user_registration_register', 'id': 'registerForm'}}) }}
 <div class="col-lg-5 push-lg-1 d-inline-block">
     {{ form_widget(form.username, {'attr':{'id': 'nicknameInput', 'placeholder': 'Nickname', 'class': 'form-control'}}) }}
@@ -23,6 +25,17 @@
     <input type="submit" value="{{ 'registration.submit'|trans }}" class="btn continue-btn col-md-6 push-md-3" id="continueBtn">
 </div>
 {{ form_end(form) }}
+    <div id="login-section" class="push-md-3 col-md-3 row">
+       <span class="baseline d-inline-block" id="baseline3">I already have an account!</span> <br>
+       {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+           {{ 'layout.logged_in_as'|trans({'%username%': app.user.username}, 'FOSUserBundle') }} |
+           <a style="color:black;" class="continue-btn btn col-md-4 d-inline-block" href="{{ path('fos_user_security_logout') }}">
+               {{ 'layout.logout'|trans({}, 'FOSUserBundle') }}
+           </a>
+       {% else %}
+           <a style="color:black;" class="continue-btn btn col-md-4 d-inline-block" href="{{ path('fos_user_security_login') }}">{{ 'layout.login'|trans({}, 'FOSUserBundle') }}</a>
+       {% endif %}
+    </div>
 {% endblock %}
 
 

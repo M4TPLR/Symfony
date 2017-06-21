@@ -19,3 +19,6 @@ body{
     }
 }
 
+#login-section{
+    display: none;
+}
