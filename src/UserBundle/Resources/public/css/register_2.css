@@ -1,12 +1,12 @@
 @import url('https://fonts.googleapis.com/css?family=Fjalla+One');
 
-.background-img{
-    background: url("../sea.jpg") no-repeat center fixed;
+body{
+    background: url("http://localhost:8888/Symfony/web/bundles/user/img/sea.jpg") no-repeat center fixed;
     background-size: cover;
 }
 
 .background-img-hall{
-    background: url("../aurore.jpg") no-repeat center fixed;
+    background: url("http://localhost:8888/Symfony/web/bundles/user/img/aurore.jpg") no-repeat center fixed;
     background-size: cover;
 }
 
@@ -29,7 +29,7 @@
 }
 
 .register-title{
-    padding-top: 20px;
+    padding-top: 10px;
     color: white;
     font-size: 140%;
 }

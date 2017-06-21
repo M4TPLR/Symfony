@@ -8,10 +8,11 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 class PlayerController extends Controller
 {
     /**
-     * @Route("/player/{id}")
+     * @Route("/player/{id}", name="player")
      */
     public function indexAction($id)
     {
+
         $em = $this->getDoctrine()->getManager();
         $r = $em->getRepository('AppBundle:Video');
         $video = $r->find($id);
