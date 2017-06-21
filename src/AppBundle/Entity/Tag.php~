@@ -19,6 +19,12 @@ class Tag
     private $video;
 
     /**
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Hall")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $hall;
+
+    /**
      * @var int
      *
      * @ORM\Column(name="id", type="integer")

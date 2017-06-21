@@ -4,6 +4,7 @@ jQuery(function ($) {
     var nextStep = $(".nextstepBtn");
     var body = $("body");
     var hallSection = $("#hallSection");
+    var hallinputGroup = $("#register3Form");
 
     baseline1.fadeIn(1000);
     baseline1.animate({
