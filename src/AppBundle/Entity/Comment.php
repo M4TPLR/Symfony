@@ -29,6 +29,11 @@ class Comment
     private $text;
 
     /**
+     * @ORM\ManyToOne(targetEntity="UserBundle\Entity\User")
+     */
+    private $user;
+
+    /**
      *
      * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Video", cascade={"persist"})
      * @ORM\JoinColumn(nullable=false)
@@ -74,11 +79,11 @@ class Comment
     /**
      * Set video
      *
-     * @param \Entity $video
+     * @param \AppBundle\Entity\Video $video
      *
      * @return Comment
      */
-    public function setVideo(\Entity $video)
+    public function setVideo(\AppBundle\Entity\Video $video)
     {
         $this->video = $video;
 
@@ -88,10 +93,34 @@ class Comment
     /**
      * Get video
      *
-     * @return \Entity
+     * @return \AppBundle\Entity\Video
      */
     public function getVideo()
     {
         return $this->video;
+    }
+
+    /**
+     * Set user
+     *
+     * @param \UserBundle\Entity\User $user
+     *
+     * @return Comment
+     */
+    public function setUser(\UserBundle\Entity\User $user = null)
+    {
+        $this->user = $user;
+
+        return $this;
+    }
+
+    /**
+     * Get user
+     *
+     * @return \UserBundle\Entity\User
+     */
+    public function getUser()
+    {
+        return $this->user;
     }
 }
