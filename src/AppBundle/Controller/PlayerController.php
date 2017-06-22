@@ -5,8 +5,10 @@ namespace AppBundle\Controller;
 use AppBundle\Entity\Comment;
 use AppBundle\Entity\Video;
 use AppBundle\Form\CommentType;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 
 class PlayerController extends Controller
@@ -58,5 +60,39 @@ class PlayerController extends Controller
             'commentForm' => $commentForm->createView(),
             'commentFormSm' => $commentFormSm->createView()
         ));
+    }
+
+    /**
+     * @Route("/player/comment/{video}", name="comment")
+     */
+    public
+    function validformsmAction($video, Request $request)
+    {
+        if (!$request->isXmlHttpRequest()) {
+            return new JsonResponse(array('message' => 'Ajax failed, please reload the page'), 400);
+        }
+
+        $comment = new Comment();
+        $form = $this->createForm(CommentType::class, $comment);
+
+        $form->handleRequest($request);
+        $em = $this->getDoctrine()->getManager();
+
+        $video = $em->getRepository('AppBundle:Video')->find($video);
+        if ($form->isValid()) {
+            $comment->setUser($this->getUser());
+            $comment->setVideo($video);
+            $em->persist($comment);
+            $em->flush();
+
+            return new JsonResponse(array('message' => 'Success, form is valid', 200));
+        }
+
+        return new JsonResponse(array(
+            'message' => 'Error',
+            'view' => $this->renderView('UserBundle:Default:confirmed.html.twig', array(
+                'user' => $comment
+            )),
+        ), 400);
     }
 }

@@ -38,9 +38,9 @@
                     {% endfor %}
                 {% endif %}
             </div>
-            {{ form_start(commentForm, {'attr': {'id': 'form-comment-lg'}}) }}
+            {{ form_start(commentForm, {'attr': {'id': 'form-comment-lg', 'action': path('comment', {'video': video.id})}}) }}
             {{ form_widget(commentForm.text, {'attr': {'placeholder': "Your comment", 'class': 'form-control col-lg-8 hidden-md-down d-inline-block'}}) }}
-            {{ form_widget(commentForm.submit, {'attr': {'class': 'btn continue-btn', 'value': 'send', 'style': 'margin-top: -20px;'}}) }}
+            {{ form_widget(commentForm.submit, {'attr': {'class': 'btn continue-btn send-btn', 'value': 'send'}}) }}
             {{ form_end(commentForm) }}
         </div>
     </div>
@@ -145,12 +145,12 @@
             </div>
         </div>
     </div>
-    <div class="row" id="comments-block">
-        <h6 id="comments-title" class="hidden-lg-up section-title d-block col-12" class="section-title">Comments</h6>
+    <div class="row hidden-lg-up" id="comments-block">
+        <h6 id="comments-title" class="section-title d-block col-12" class="section-title">Comments</h6>
         <div class="comments container text-justify hidden-lg-up">
             {% if listComments is defined %}
                 {% for comment in listComments %}
-                    <div class="row comment-line hidden-md-up container">
+                    <div class="row comment-line container">
                         <img src="{{ asset('bundles/app/img/profil.png') }}" alt="profile-img"
                              class="profile-img float-left d-inline-block">
                         <p class="comment-text d-inline-block float-right col-8 push-1">{{ comment.text }}</p>
@@ -159,14 +159,17 @@
             {% endif %}
 
         </div>
-        {{ form_start(commentFormSm, {'attr': {'id': 'form-comment', 'class': 'hidden-lg-up col-12'}}) }}
+
+
+        {{ form_start(commentFormSm, {'attr': {'id': 'form-comment-sm', 'class': 'hidden-lg-up col-12', 'action': path('comment', {'video': video.id})}}) }}
         {{ form_widget(commentFormSm.text, {'attr': {'placeholder': "Your comment", 'class': 'form-control col-8 hidden-lg-up d-inline-block'}}) }}
-        {{ form_widget(commentFormSm.submit, {'attr': {'class': 'btn continue-btn col-3 hidden-lg-up', 'value': 'send', 'style': 'margin-top: -20px;'}}) }}
+        {{ form_widget(commentFormSm.submit, {'attr': {'class': 'btn continue-btn col-3 hidden-lg-up send-btn', 'value': 'send'}}) }}
         {{ form_end(commentFormSm) }}
     </div>
 
     {% block javascripts %}
         <script src="http://vjs.zencdn.net/5.19.2/video.js"></script>
+        <script src="{{ asset('bundles/app/js/player.js') }}"></script>
     {% endblock %}
     </body>
 

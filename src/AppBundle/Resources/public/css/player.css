@@ -1,5 +1,4 @@
 .comments{
-    background-color: #34495e;
     height: 300px;
     overflow: scroll;
 }
@@ -171,5 +170,10 @@ ul{
 }
 
 #comments-block{
-    height: 100px;
+    height: 430px;
+    background-color: #34495e;
+}
+
+.send-btn{
+    margin-top: -20px;
 }
