@@ -1,0 +1,51 @@
+<?php
+
+namespace AppBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * SubscribersHalls
+ *
+ * @ORM\Table(name="subscribers_halls")
+ * @ORM\Entity(repositoryClass="AppBundle\Repository\SubscribersHallsRepository")
+ */
+class SubscribersHalls
+{
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    private $id;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="nbr_subscribers", type="integer")
+     */
+    private $nbrSubscribers;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="UserBundle\Entity\User")
+     */
+    private $subscribers;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Hall")
+     */
+    private $halls;
+
+    /**
+     * Get id
+     *
+     * @return int
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+}
+

@@ -22,6 +22,11 @@ class Video
     private $id;
 
     /**
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Hall", inversedBy="videos")
+     */
+    private $hall;
+
+    /**
      * @var string
      *
      * @ORM\Column(name="title", type="string", length=255)
@@ -271,5 +276,70 @@ class Video
     public function getHallid()
     {
         return $this->hallid;
+    }
+
+    /**
+     * Set hall
+     *
+     * @param \AppBundle\Entity\Hall $hall
+     *
+     * @return Video
+     */
+    public function setHall(\AppBundle\Entity\Hall $hall = null)
+    {
+        $this->hall = $hall;
+
+        return $this;
+    }
+
+    /**
+     * Get hall
+     *
+     * @return \AppBundle\Entity\Hall
+     */
+    public function getHall()
+    {
+        return $this->hall;
+    }
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->followedHalls = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Add followedHall
+     *
+     * @param \AppBundle\Entity\Hall $followedHall
+     *
+     * @return Video
+     */
+    public function addFollowedHall(\AppBundle\Entity\Hall $followedHall)
+    {
+        $this->followedHalls[] = $followedHall;
+
+        return $this;
+    }
+
+    /**
+     * Remove followedHall
+     *
+     * @param \AppBundle\Entity\Hall $followedHall
+     */
+    public function removeFollowedHall(\AppBundle\Entity\Hall $followedHall)
+    {
+        $this->followedHalls->removeElement($followedHall);
+    }
+
+    /**
+     * Get followedHalls
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getFollowedHalls()
+    {
+        return $this->followedHalls;
     }
 }

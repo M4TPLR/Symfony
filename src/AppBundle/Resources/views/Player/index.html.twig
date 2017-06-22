@@ -86,11 +86,13 @@
             {% endif %}</p>
     </div>
     <div class="hall row">
-        <span class="hall_name col-3 col-sm-2 col-md-1 col-lg-1">Hall</span>
-        <span class="nbr_hallers col-6 col-sm-4 col-md-3 col-lg-2">2800 Hallers</span>
+        {% if hall is defined and nbrSubscribers is defined %}
+        <span class="hall_name col-3 col-sm-3 col-md-3 col-lg-2">{{ hall.name }}</span>
+        <span class="nbr_hallers col-6 col-sm-4 col-md-3 col-lg-2">{{ nbrSubscribers }} Hallers</span>
         <form action="#" method="get">
             <input type="button" value="Add" class="suscribe_btn navbar-toggler-right col-3">
         </form>
+        {% endif %}
 
     </div>
     <h6 class="section-title">Discover</h6>

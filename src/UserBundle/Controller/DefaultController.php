@@ -29,6 +29,7 @@ class DefaultController extends Controller
                 $hallForm->handleRequest($request);
                 if ($hallForm->isValid()) {
                     $em = $this->getDoctrine()->getManager();
+                    $hall->setUser($user);
                     $em->persist($hall);
                     $em->flush();
 
@@ -44,13 +45,6 @@ class DefaultController extends Controller
             'form' => $form->createView(),
             'hallForm' => $hallForm->createView()
         ));
-
-    }
-
-
-    public
-    function validhallAction()
-    {
 
     }
 
