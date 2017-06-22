@@ -20,14 +20,14 @@ class DefaultController extends Controller
         $user = $this->getUser();
         if (null === $user) {
             return $this->redirect($this->generateUrl('fos_user_registration_register'));
-        } else{
+        } elseif ($user->getLastname() === "" && $user->getFirstname() === "" && $user->getBio() === "" || $request->isMethod('POST')) {
             $hall = new Hall();
             $form = $this->createForm(UserType::class, $user);
             $hallForm = $this->createForm(HallType::class, $hall);
 
-            if($request->isMethod('POST')){
+            if ($request->isMethod('POST')) {
                 $hallForm->handleRequest($request);
-                if($hallForm->isValid()){
+                if ($hallForm->isValid()) {
                     $em = $this->getDoctrine()->getManager();
                     $em->persist($hall);
                     $em->flush();
@@ -35,16 +35,22 @@ class DefaultController extends Controller
                     return $this->redirect($this->generateUrl('player', array('id' => 1)));
                 }
             }
-
-            return $this->render('UserBundle:Default:confirmed.html.twig', array(
-                'form' => $form->createView(),
-                'hallForm' => $hallForm->createView()
-            ));
-
+        } else {
+            return $this->redirect($this->generateUrl('player', array('id' => 1)));
         }
+
+
+        return $this->render('UserBundle:Default:confirmed.html.twig', array(
+            'form' => $form->createView(),
+            'hallForm' => $hallForm->createView()
+        ));
+
     }
 
-    public function validhallAction(){
+
+    public
+    function validhallAction()
+    {
 
     }
 
@@ -52,7 +58,8 @@ class DefaultController extends Controller
      * @Route("/register/confirmed/validate", name="validate")
      * @Method("POST")
      */
-    public function validformAction(Request $request)
+    public
+    function validformAction(Request $request)
     {
         if (!$request->isXmlHttpRequest()) {
             return new JsonResponse(array('message' => 'Ajax failed, please reload the page'), 400);
